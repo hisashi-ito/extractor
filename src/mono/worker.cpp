@@ -1,3 +1,6 @@
+//
+// 2021.09.08 disable then output function of HTML.
+//
 
 #include "worker.h"
 #include "filters/warcfilter.h"
@@ -63,7 +66,7 @@ namespace mono {
 
       qout.push(filters::WARCFilter());
       qout.push(filters::LangsplitFilter(output_folder, print_stats));
-      qout.push(filters::LangCollectorFilter(output_folder, output_compr));
+      // qout.push(filters::LangCollectorFilter(output_folder, output_compr));
       qout.push(boost::iostreams::null_sink());
 
       boost::iostreams::copy(qin, qout);
@@ -81,7 +84,7 @@ namespace mono {
 
       qout.push(filters::WARCFilter());
       qout.push(filters::LangsplitFilter(output_folder, print_stats));
-      qout.push(filters::LangCollectorFilter(output_folder, output_compr));
+      // qout.push(filters::LangCollectorFilter(output_folder, output_compr));
       qout.push(boost::iostreams::null_sink());
 
       // split input on a single space
